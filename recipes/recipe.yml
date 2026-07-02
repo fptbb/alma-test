@@ -17,7 +17,7 @@ modules:
     group-install:
       with-optional: true
       packages:
-        - kde-desktop
+        - kde-desktop-environment
     install:
       packages:
         - epel-release
