@@ -10,10 +10,10 @@ modules:
       - source: system
         destination: /
 
-  - type: script
-    snippets:
-      - dnf config-manager setopt crb.enabled=1
-      - dnf install -y epel-release
+  - type: dnf
+    install:
+      packages:
+        - epel-release
 
   - type: dnf
     group-install:
