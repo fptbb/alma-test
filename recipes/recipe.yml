@@ -4,13 +4,24 @@
 name: obsidian
 description: Alma Linux Atomic LTS
 
-base-image: quay.io/almalinuxorg/atomic-desktop-kde
-image-version: latest
+base-image: quay.io/almalinuxorg/almalinux-bootc
+image-version: 10
 
 modules:
   - type: files
     files:
       - source: system
         destination: /
+
+  - type: dnf
+    group-install:
+      with-optional: true
+      packages:
+        - kde-desktop
+    install:
+      packages:
+        - epel-release
+        - podman
+        - podman-docker
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
