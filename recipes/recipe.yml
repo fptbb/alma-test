@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: obsidian
 description: Alma Linux Atomic LTS
-base-image: quay.io/almalinuxorg/almalinux-bootc
+base-image: quay.io/almalinuxorg/atomic-desktop-kde
 image-version: 10
 
 modules:
