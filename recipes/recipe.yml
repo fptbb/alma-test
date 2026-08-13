@@ -16,12 +16,6 @@ modules:
         - epel-release
 
   - type: dnf
-    group-install:
-      with-optional: true
-      packages:
-        - kde-desktop-environment
-
-  - type: dnf
     install:
       packages:
         - podman
