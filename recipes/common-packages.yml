@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: dnf
+    install:
+      skip-broken: true
+      packages:
+        # Networking & VPNs
+        - nordvpn
+        - tailscale
+        - cloudflare-warp
+        - libpcap
+        - dnscrypt-proxy
+        - tor
+        - torsocks
+
+        # System Utilities & CLI Enhancement
+        - powerline-fonts
+        - plasma-drkonqi
+
+        # KDE Related
+        - plasma-union
+
+        # Security & Authentication
+        - pam-u2f
+        - libfido2
+        - fido2-tools
+        - gnupg2
+        - kleopatra
+
+        # Development & Image Management
+        - busybox
+        - buildah
+
+        # Storage & File Management
+        - kde-partitionmanager
+        - dolphin-plugins
+
+        # Dotfiles, Automation & Secrets
+        - just
+        - chezmoi
+        - age
+        - expect
+  - type: script
+    scripts:
+      - install-user-tools.sh
+      - fido2.sh
+      - appimage-updater.sh
+      - dnscrypt-proxy.sh
+      - install-netbird.sh
+  - type: script
+    snippets:
+      - "systemd-sysusers /usr/lib/sysusers.d/tor.conf"
+  - type: systemd
+    system:
+      enabled:
+        - nordvpnd
+        - tailscaled
+        - dnscrypt-proxy
+        - obsidian-dev-groups.service
+      disabled:
+        - tor.service

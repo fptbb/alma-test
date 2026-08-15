@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+JUSTFILE="/usr/share/obsidian/just/justfile"
+
+if [ ! -f "$JUSTFILE" ]; then
+  JUSTFILE="/usr/share/ublue-os/just/justfile"
+fi
+
+if [ -f "$JUSTFILE" ]; then
+  exec just --justfile "$JUSTFILE" --working-directory "$HOME" "$@"
+else
+  exec just "$@"
+fi

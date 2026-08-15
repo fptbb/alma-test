@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 name: obsidian
-description: Alma Linux Atomic LTS
+description: Alma Linux Atomic LTS Workstation
 base-image: quay.io/almalinuxorg/atomic-desktop-kde
 image-version: 10
 
@@ -10,15 +10,41 @@ modules:
       - source: system
         destination: /
 
-  - type: dnf
-    install:
-      packages:
-        - epel-release
+  # Common Modules
+  - from-file: common-packages.yml
+  - from-file: common-flatpaks.yml
+  - from-file: common-development.yml
+  - from-file: common-debloat.yml
+  - from-file: common-theming.yml
 
-  - type: dnf
-    install:
-      packages:
-        - podman
-        - podman-docker
+  # Branding Related Modules
+  - type: os-release
+    properties:
+      ID: obsidian
+      VARIANT_ID: obsidian
+      NAME: Obsidian
+      PRETTY_NAME: Obsidian LTS
+      HOME_URL: https://gitlab.com/fpsys/obsidian
+      DEFAULT_HOSTNAME: fp-pc
+  - type: script
+    scripts:
+      - branding.sh
 
-  - type: signing
+  # Obligatory Common Modules
+  - from-file: common.yml
+
+labels:
+  "org.opencontainers.image.title": "Obsidian"
+  "org.opencontainers.image.source": "https://gitlab.com/fpsys/obsidian"
+  "org.opencontainers.image.url": "https://os.fpt.icu/"
+  "org.opencontainers.image.documentation": "https://os.fpt.icu/"
+  "org.opencontainers.image.description": "Alma Linux Atomic LTS Workstation Image."
+  "org.opencontainers.image.vendor": "fptbb"
+  "org.opencontainers.image.base.name": "quay.io/fptbb/obsidian:latest"
+  "io.artifacthub.package.readme-url": "https://gitlab.com/fpsys/obsidian/-/raw/main/README.md"
+  "io.artifacthub.package.logo-url": "https://gitlab.com/fpsys/obsidian/-/raw/main/files/system/usr/share/pixmaps/fp-logo.png"
+  "io.artifacthub.package.maintainers": '[{\"name\": \"fptbb\", \"email\": \"lucas@fptbb.com\"}]'
+  "io.artifacthub.package.prerelease": "false"
+  "io.artifacthub.package.keywords": "fp-os, bootc, ostree, almalinux, blue-build, obsidian, lts"
+  "io.artifacthub.package.deprecated": "false"
+  "io.artifacthub.package.alternative-locations": "ghcr.io/fptbb/obsidian:latest"

@@ -1,0 +1,9 @@
+[Unit]
+Description=Add wheel users to container, virtualization, and serial groups
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/obsidian-dev-groups
+
+[Install]
+WantedBy=default.target

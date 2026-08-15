@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-list-v1.json
+
+modules:
+  - type: systemd
+    system:
+      masked:
+        - raid-check.timer
+        - thermald.service
+        - mdmonitor.service
+        - vmtoolsd.service
+        - vgauthd.service
+        - vboxservice.service
+        - nfs-server.service
+        - nfs-mountd.service
+        - rpcbind.service
+        - sssd.service
+        - NetworkManager-wait-online.service
+        - dnf-makecache.timer
+  - type: dnf
+    remove:
+      packages:
+        - orca
+        - speech-dispatcher
+        - brltty
+        - braille-printer-app
+      auto-remove: true
