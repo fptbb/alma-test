@@ -1,4 +1,5 @@
 # Obsidian - WIP/TESTS
+This version is kinda outdated from my offline tests :P
 
 Reference links:
 https://github.com/AlmaLinux/atomic-desktop
