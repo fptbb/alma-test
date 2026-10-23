@@ -54,6 +54,7 @@ modules:
       packages:
         - nvidia-open-kmod
         - nvidia-driver
+        - nvidia-driver-cuda
 
   - type: script
     scripts:
