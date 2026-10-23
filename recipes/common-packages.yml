@@ -5,6 +5,8 @@ modules:
     install:
       skip-broken: true
       packages:
+        # Obsidian Related
+        - rpm-ostree
         # Networking & VPNs
         - nordvpn
         - tailscale
