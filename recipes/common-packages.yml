@@ -33,6 +33,7 @@ modules:
         # Development & Image Management
         - busybox
         - buildah
+        - distrobox
 
         # Storage & File Management
         - kde-partitionmanager
