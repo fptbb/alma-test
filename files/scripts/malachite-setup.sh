@@ -56,7 +56,7 @@ echo "Configuring Malachite Persistence (tmpfiles)..."
 mkdir -p /usr/lib/tmpfiles.d
 cat <<TMP > /usr/lib/tmpfiles.d/obsidian.conf
 # Create persistent directories for Obsidian system data
-d /var/lib/obsidian 0777 root root - -
+d /var/lib/obsidian 0755 root root - -
 TMP
 
 echo "Malachite setup complete."

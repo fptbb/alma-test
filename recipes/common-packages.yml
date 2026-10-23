@@ -43,6 +43,17 @@ modules:
         - chezmoi
         - age
         - expect
+  # NVIDIA Drivers
+  - type: dnf
+    install:
+      packages:
+        - almalinux-release-nvidia-driver
+  - type: dnf
+    install:
+      packages:
+        - nvidia-open-kmod
+        - nvidia-driver
+
   - type: script
     scripts:
       - install-user-tools.sh

@@ -52,7 +52,6 @@ labels:
   "org.opencontainers.image.documentation": "https://os.fpt.icu/"
   "org.opencontainers.image.description": "Alma Linux Atomic LTS Workstation Image."
   "org.opencontainers.image.vendor": "fptbb"
-  "org.opencontainers.image.base.name": "quay.io/fptbb/obsidian:latest"
   "io.artifacthub.package.readme-url": "https://gitlab.com/fpsys/obsidian/-/raw/main/README.md"
   "io.artifacthub.package.logo-url": "https://gitlab.com/fpsys/obsidian/-/raw/main/files/system/usr/share/pixmaps/fp-logo.png"
   "io.artifacthub.package.maintainers": '[{\"name\": \"fptbb\", \"email\": \"lucas@fptbb.com\"}]'
